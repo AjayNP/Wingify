@@ -22,24 +22,26 @@
             </div>
         </div>
         <div class="signup-form">
-            <form onsubmit="return ValidationEvent()">
+            <form method="post" onsubmit="return ValidationEvent()" id="signup-form">
                 <h2>Create an account</h2>
                 <ul>
-                    <li class="error">
+                    <li>
                         <label>Enter your email</label>
-                        <input type="email" name="email">
-                        <span>Please add valid email address</span>
+                        <input type="text" name="email" id="email">
+                        <span class="error-msg">Please add valid email address</span>
                     </li>
                     <li>
                         <label>Enter your full name <span class="font-size-small"> (Optional)</span></label>
-                        <input type="text" name="email">
+                        <input type="text" name="name">
                     </li>
                     <li>
                         <label>Choose a strong password</label>
-                        <input type="password" name="pwd">
+                        <input type="password" name="pwd" id="pwd">
+                        <span class="error-msg">Password must have a numeric value</span>
                     </li>
                     <li class="mB5">
-                        <label class="d-block">Are you an agency or individual? <span class="font-size-small"> (Optional)</span></label>
+                        <label class="d-block">Are you an agency or individual? <span class="font-size-small">
+                                (Optional)</span></label>
                     </li>
                     <li class="options">
                         <input type="radio" id="agency" name="customer"> <label for="agency">Agency </label>
@@ -53,5 +55,37 @@
         </div>
     </div>
 </body>
+<script>
+    function ValidationEvent() {
+        // Storing input values Values
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('pwd').value;
+        //  Email validation
+        var atposition = email.indexOf("@");
+        var dotposition = email.lastIndexOf(".");
+        var emailError = document.getElementById("email").parentElement;
+        var pwdError = document.getElementById("pwd").parentElement;
+
+        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
+
+            emailError.classList.add("error");
+            return false;
+        }
+        else {
+            emailError.classList.remove("error");
+            event.preventDefault();
+        }
+        if (password = "") {
+            pwdError.classList.add("error");
+
+        }
+        else {
+            pwdError.classList.remove("error");
+            return true;
+            document.getElementById("signup-form").submit();
+        }
+    }
+
+</script>
 
 </html>
