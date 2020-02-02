@@ -75,14 +75,13 @@
             emailError.classList.remove("error");
             event.preventDefault();
         }
-        if (password = "") {
+        if (password = " ") {
             pwdError.classList.add("error");
-
+            return false
         }
         else {
             pwdError.classList.remove("error");
             return true;
-            document.getElementById("signup-form").submit();
         }
     }
 
