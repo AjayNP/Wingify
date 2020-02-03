@@ -65,6 +65,7 @@
         var dotposition = email.lastIndexOf(".");
         var emailError = document.getElementById("email").parentElement;
         var pwdError = document.getElementById("pwd").parentElement;
+        var pwdRequire = /((^[0-9]+[a-z]+)|(^[a-z]+[0-9]+))+[0-9a-z]+$/i;
 
         if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
 
@@ -75,7 +76,10 @@
             emailError.classList.remove("error");
             event.preventDefault();
         }
-        if (password = " ") {
+        
+
+        if (!password.match(pwdRequire)) {
+
             pwdError.classList.add("error");
             return false
         }

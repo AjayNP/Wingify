@@ -30,8 +30,11 @@ span.error-msg{display: none;}
 .d-block{display: block !important;}
 .mB5{margin-bottom: 5px !important;}
 input:focus{outline: none;}
+@media(min-width: 1600px){
+    .form-container{max-width: 1000px; height: 60vh;}
+}
 @media(max-width:991px){
-    .form-container{height: 90vh;}
+    .form-container{height: 70vh;}
     .signup-form{padding: 30px;}
 }
 @media(max-width:769px){
@@ -40,9 +43,9 @@ input:focus{outline: none;}
 }
 @media(max-width: 600px){
     .bg-fill{display: none;}
-    .form-container{height: inherit;flex-direction: column; transform: translate(0,0); position: static;}
+    .form-container{height: 100vh;flex-direction: column; transform: translate(0,0); position: static;}
     .welcome, .signup-form{ width: 100%;}
-    .welcome{background-position: center center; border-radius: 0;}
+    .welcome{background-position: center center; border-radius: 0; height: 160px;}
     .welcome-msg{width: 100%; padding: 50px 80px; margin: 0;}
     .signup-form{padding: 50px 80px;}
 }
